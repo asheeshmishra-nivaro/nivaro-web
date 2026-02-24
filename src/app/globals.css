@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0f172a;
+  --accent: #2563eb;
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-primary antialiased;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white px-8 py-3.5 rounded-xl font-bold hover:bg-slate-800 transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center pointer-events-auto;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white px-8 py-3.5 rounded-xl font-bold hover:bg-blue-700 transition-all duration-300 shadow-lg shadow-accent/20 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center pointer-events-auto;
+  }
+
+  .btn-outline {
+    @apply border-2 border-slate-200 text-primary px-8 py-3.5 rounded-xl font-bold hover:bg-slate-50 transition-all duration-300 flex items-center justify-center pointer-events-auto;
+  }
+
+  .section-padding {
+    @apply py-24 lg:py-32;
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+}
+
+.selection\:bg-accent\/10 {
+  @apply bg-blue-50;
+}
