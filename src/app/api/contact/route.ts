@@ -2,6 +2,13 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
 export async function POST(req: Request) {
+    // DIAGNOSTIC CHECK
+    if (!process.env.DATABASE_URL) {
+        console.error("DIAGNOSTIC: DATABASE_URL is MISSING from process.env");
+    } else {
+        console.log("DIAGNOSTIC: DATABASE_URL is PRESENT in process.env");
+    }
+
     try {
         const { name, organization, interestType, email, phone, message } = await req.json();
 
