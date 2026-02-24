@@ -24,10 +24,18 @@ export async function POST(req: Request) {
         });
 
         return NextResponse.json(inquiry, { status: 201 });
-    } catch (error) {
-        console.error("Failed to create inquiry:", error);
+    } catch (error: any) {
+        console.error("Failed to create inquiry:", {
+            message: error.message,
+            code: error.code,
+            meta: error.meta,
+            stack: error.stack
+        });
         return NextResponse.json(
-            { error: "Internal Server Error" },
+            {
+                error: "Internal Server Error",
+                details: process.env.NODE_ENV === "development" ? error.message : undefined
+            },
             { status: 500 }
         );
     }
