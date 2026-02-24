@@ -4,7 +4,7 @@ const nextConfig = {
     swcMinify: true,
     // Ensure CSS is correctly handled
     compiler: {
-        removeConsole: process.env.NODE_ENV === "production",
+        // removeConsole: process.env.NODE_ENV === "production",
     },
 };
 
